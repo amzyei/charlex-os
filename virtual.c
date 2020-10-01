@@ -222,34 +222,79 @@ void input()
 // this function load logo
 
 void logo(){
-  print_on_terminal("      _                _     __  __");
+  // print_on_terminal("      _                _     __  __");
+  // newline_on_terminal();
+
+  // print_on_terminal("  ___| |__   __ _ _ __| | ___\\\\ \\/ /");
+  // newline_on_terminal();
+
+  // print_on_terminal(" / __| '_  \\/ _` | '__| |/ _ \\\\  /");
+  // newline_on_terminal();
+
+  // print_on_terminal("| (__| | | | (_| | |  | |  __//  \\");
+  // newline_on_terminal();
+
+  // print_on_terminal(" \\___|_| |_|\\__,_|_|  |_| \\___/_/\\_\\");
+  // newline_on_terminal();
+
+  // print_on_terminal("        	  ___  ____      ");
+  // newline_on_terminal();
+
+  // print_on_terminal("        	 / _ \\/ ___|    ");
+  // newline_on_terminal();
+
+  // print_on_terminal("        	| | | \\___ \\   ");
+  // newline_on_terminal();
+
+  // print_on_terminal("        	| |_| |___) |    ");
+  // newline_on_terminal();
+
+  // print_on_terminal("        	 \\___/|____/    ");
+
+  print_on_terminal("                                                        ,/{}");
   newline_on_terminal();
 
-  print_on_terminal("  ___| |__   __ _ _ __| | ___\\\\ \\/ /");
+  print_on_terminal("                                                      ,/  {|");
   newline_on_terminal();
 
-  print_on_terminal(" / __| '_  \\/ _` | '__| |/ _ \\\\  /");
+  print_on_terminal("                                                  ,,,/    {|,");
   newline_on_terminal();
 
-  print_on_terminal("| (__| | | | (_| | |  | |  __//  \\");
+  print_on_terminal("                                            __--~~        {| ~-,");
   newline_on_terminal();
 
-  print_on_terminal(" \\___|_| |_|\\__,_|_|  |_| \\___/_/\\_\\");
+  print_on_terminal("                                      __--~~              {     `\\");
   newline_on_terminal();
 
-  print_on_terminal("        	  ___  ____      ");
+  print_on_terminal("                                                              ,__ \\");
   newline_on_terminal();
 
-  print_on_terminal("        	 / _ \\/ ___|    ");
+  print_on_terminal("        888                       888           Y88b    /   `,\\{),\\,");
   newline_on_terminal();
 
-  print_on_terminal("        	| | | \\___ \\   ");
+  print_on_terminal(" e88~~\\ 888-~88e   /~~~8e  888-~\\ 888  e88~~8e   Y88b  /   __-~  `_ ~-_");
   newline_on_terminal();
 
-  print_on_terminal("        	| |_| |___) |    ");
+  print_on_terminal("d888    888  888       88b 888    888 d888  88b   Y88b/  _-~        ~~-_`~-_");
   newline_on_terminal();
 
-  print_on_terminal("        	 \\___/|____/    ");
+  print_on_terminal("8888    888  888  e88~-888 888    888 8888__888   /Y88b '             `~-_`~-__ ");
+  newline_on_terminal();
+
+  print_on_terminal("Y888    888  888 C888  888 888    888 Y888    ,  /  Y88b`,                `~-\\_|");
+  newline_on_terminal();
+
+  print_on_terminal(" \"88__/ 888  888  \"88_-888 888    888  \"88___/  /    Y88b`,     _-----___    _,'");
+  newline_on_terminal();
+  
+  print_on_terminal("                                                         / /--__  ~~--__  `~,~");
+  newline_on_terminal();
+
+  print_on_terminal("                                                          /     ~~--__  ~-',");
+  newline_on_terminal();
+
+  print_on_terminal("------------------------------------------------------' ");
+  newline_on_terminal();
 }
 
 // kernel entery point !!
