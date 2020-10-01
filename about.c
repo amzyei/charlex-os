@@ -57,7 +57,7 @@ void init_vga(uint8 fore_color, uint8 back_color)
 /*
 increase vga_index by width of row(80)
 */
-void print_new_line()
+void newline_on_terminal()
 {
   if(next_line_index >= 55){
     next_line_index = 0;
@@ -115,7 +115,7 @@ void itoa(int num, char *number)
 }
 
 //print string by calling print_char
-void print_string(char *str)
+void print_on_terminal(char *str)
 {
   uint32 index = 0;
   while(str[index]){
@@ -130,38 +130,85 @@ void print_int(int num)
 {
   char str_num[digit_count(num)+1];
   itoa(num, str_num);
-  print_string(str_num);
+  print_on_terminal(str_num);
 }
 
 void logo(){
-  print_string("      _                _     __  __");
-  print_new_line();
+  // print_on_terminal("      _                _     __  __");
+  // newline_on_terminal();
 
-  print_string("  ___| |__   __ _ _ __| | ___\\\\ \\/ /");
-  print_new_line();
+  // print_on_terminal("  ___| |__   __ _ _ __| | ___\\\\ \\/ /");
+  // newline_on_terminal();
 
-  print_string(" / __| '_  \\/ _` | '__| |/ _ \\\\  /");
-  print_new_line();
+  // print_on_terminal(" / __| '_  \\/ _` | '__| |/ _ \\\\  /");
+  // newline_on_terminal();
 
-  print_string("| (__| | | | (_| | |  | |  __//  \\");
-  print_new_line();
+  // print_on_terminal("| (__| | | | (_| | |  | |  __//  \\");
+  // newline_on_terminal();
 
-  print_string(" \\___|_| |_|\\__,_|_|  |_| \\___/_/\\_\\");
-  print_new_line();
+  // print_on_terminal(" \\___|_| |_|\\__,_|_|  |_| \\___/_/\\_\\");
+  // newline_on_terminal();
 
-  print_string("        	  ___  ____      ");
-  print_new_line();
+  // print_on_terminal("        	  ___  ____      ");
+  // newline_on_terminal();
 
-  print_string("        	 / _ \\/ ___|    ");
-  print_new_line();
+  // print_on_terminal("        	 / _ \\/ ___|    ");
+  // newline_on_terminal();
 
-  print_string("        	| | | \\___ \\   ");
-  print_new_line();
+  // print_on_terminal("        	| | | \\___ \\   ");
+  // newline_on_terminal();
 
-  print_string("        	| |_| |___) |    ");
-  print_new_line();
+  // print_on_terminal("        	| |_| |___) |    ");
+  // newline_on_terminal();
 
-  print_string("        	 \\___/|____/    ");
+  // print_on_terminal("        	 \\___/|____/    ");
+
+  print_on_terminal("                                                        ,/{}");
+  newline_on_terminal();
+
+  print_on_terminal("                                                      ,/  {|");
+  newline_on_terminal();
+
+  print_on_terminal("                                                  ,,,/    {|,");
+  newline_on_terminal();
+
+  print_on_terminal("                                            __--~~        {| ~-,");
+  newline_on_terminal();
+
+  print_on_terminal("                                      __--~~              {     `\\");
+  newline_on_terminal();
+
+  print_on_terminal("                                                              ,__ \\");
+  newline_on_terminal();
+
+  print_on_terminal("        888                       888           Y88b    /   `,\\{),\\,");
+  newline_on_terminal();
+
+  print_on_terminal(" e88~~\\ 888-~88e   /~~~8e  888-~\\ 888  e88~~8e   Y88b  /   __-~  `_ ~-_");
+  newline_on_terminal();
+
+  print_on_terminal("d888    888  888       88b 888    888 d888  88b   Y88b/  _-~        ~~-_`~-_");
+  newline_on_terminal();
+
+  print_on_terminal("8888    888  888  e88~-888 888    888 8888__888   /Y88b '             `~-_`~-__ ");
+  newline_on_terminal();
+
+  print_on_terminal("Y888    888  888 C888  888 888    888 Y888    ,  /  Y88b`,                `~-\\_|");
+  newline_on_terminal();
+
+  print_on_terminal(" \"88__/ 888  888  \"88_-888 888    888  \"88___/  /    Y88b`,     _-----___    _,'");
+  newline_on_terminal();
+  
+  print_on_terminal("                                                         / /--__  ~~--__  `~,~");
+  newline_on_terminal();
+
+  print_on_terminal("                                                          /     ~~--__  ~-',");
+  newline_on_terminal();
+
+  print_on_terminal("------------------------------------------------------' ");
+  newline_on_terminal();
+
+
 }
 
 void kernel_entry()
@@ -176,25 +223,25 @@ void kernel_entry()
   */
   // color of terminal
   init_vga(GREEN , BLACK);
-  print_new_line();
+  newline_on_terminal();
   logo();
-  print_new_line();
-  print_string("|------------------------|");
-  print_new_line();
-  print_string("!Welcome to about charleX!");
-  print_new_line();
-  print_string("|------------------------|");
-  print_new_line();
-  print_string("|---------------------------------------|");
-  print_new_line();
-  print_string("| Created  by : amzy-0 (M.Amin Azimi.K) |");
-  print_new_line();
-  print_string("|---------------------------------------|");
-  print_new_line();
-  print_string("|     Reference : \"codeproject.com\"     |");
-  print_new_line();
-  print_string("|---------------------------------------|");
+  newline_on_terminal();
+  print_on_terminal("|------------------------|");
+  newline_on_terminal();
+  print_on_terminal("!Welcome to about charleX!");
+  newline_on_terminal();
+  print_on_terminal("|------------------------|");
+  newline_on_terminal();
+  print_on_terminal("|---------------------------------------|");
+  newline_on_terminal();
+  print_on_terminal("| Created  by : amzy-0 (M.Amin Azimi.K) |");
+  newline_on_terminal();
+  print_on_terminal("|---------------------------------------|");
+  newline_on_terminal();
+  print_on_terminal("|     Reference : \"codeproject.com\"     |");
+  newline_on_terminal();
+  print_on_terminal("|---------------------------------------|");
 
-  print_new_line();
+  newline_on_terminal();
 
 }
