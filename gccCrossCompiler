@@ -17,6 +17,7 @@ sudo $1  install libfontconfig1 -y
 sudo $1 install mesa-common-dev -y
 sudo $1  install libglu1-mesa-dev -y
 sudo $1 update && sudo $1 upgrade -y
+sudo $1 install qemu-system-x86
 clear
 echo -e "if not RUN ! \nenter your package manager \nlike this 'gccCrossCompiler (yum or apt)'"
 sleep 10;
