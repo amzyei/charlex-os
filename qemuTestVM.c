@@ -1,3 +1,4 @@
+
 #include "includes/kernel.h"
 #include "includes/utils.h"
 #include "includes/char.h"
@@ -218,7 +219,7 @@ void input()
 
 
     for (int i = 0; i < 1; i++){
-      sleep(0x0CFFFFFF);/* keyboard type speed for real machine (((32bit))) */
+      sleep(0x04FFFFFF);/* keyboard type speed NUMBER(hex) for QEMU VM */
     }
 
   }while(ch > 0);
