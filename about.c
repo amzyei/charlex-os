@@ -211,8 +211,8 @@ void logo(){
 
 }
 
-void kernel_entry()
-{
+void kernel_up(){
+
   //first init vga with fore & back colors
   // init_vga(WHITE, BLACK);
 
@@ -222,23 +222,20 @@ void kernel_entry()
     g_fore_color = BRIGHT_RED;
   */
   // color of terminal
-  init_vga(GREEN , BLACK);
+  init_vga(WHITE, BLACK);
   newline_on_terminal();
   logo();
+  print_on_terminal("|------------------|");
   newline_on_terminal();
-  print_on_terminal("|------------------------|");
+  print_on_terminal("!Welcome to charleX!");
   newline_on_terminal();
-  print_on_terminal("!Welcome to about charleX!");
+  print_on_terminal("!    version1.0    !");
   newline_on_terminal();
-  print_on_terminal("|------------------------|");
-  newline_on_terminal();
-  print_on_terminal("|---------------------------------------|");
-  newline_on_terminal();
-  print_on_terminal("| Created  by : amzy-0 (M.Amin Azimi.K) |");
+  print_on_terminal("|------------------|");
   newline_on_terminal();
   print_on_terminal("|---------------------------------------|");
   newline_on_terminal();
-  print_on_terminal("|     Reference : \"codeproject.com\"     |");
+  print_on_terminal("| Creator : amzy-0 (M.Amin Azimi.K)     |");
   newline_on_terminal();
   print_on_terminal("|---------------------------------------|");
 
