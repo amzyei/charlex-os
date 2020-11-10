@@ -59,9 +59,9 @@ $ qemu-system-i386 charleX.iso
 
 # Automatic compile and run
 
-$ chmod +x makefile
+$ chmod +x run.sh
 
-$ ./makefile
+$ ./run.sh
 
 
 # GCC Cross Compiler :
