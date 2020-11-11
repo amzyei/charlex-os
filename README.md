@@ -28,7 +28,7 @@ I wanna create the free and open-source OS like gnu/Linux, *BSD,... and you can 
 
 ![screenshots](screenshots/charleXGrub.png)
 
-![screenshots](screenshots/charleXLodingAndLogo.png)
+![screenshots](screenshots/charleXLoadingAndLogo.png)
 
 ![screenshots](screenshots/charleXPrompt.png)
 
