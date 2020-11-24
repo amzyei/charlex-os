@@ -2,6 +2,8 @@
 #include "includes/kernel.h"
 #include "includes/utils.h"
 #include "includes/char.h"
+#include "includes/reqs.h"
+
 uint32 vga_index;
 static uint32 next_line_index = 1;
 uint8 g_fore_color = WHITE, g_back_color = BLACK;
@@ -129,8 +131,8 @@ void sleep(uint32 timer_count)
 }
 
 // get and read the keys  and kernel reaction
-void input()
-{
+void input(){
+  
   char ch = 0;
   char keycode = 0;
   do{
@@ -140,8 +142,7 @@ void input()
     if(keycode == KEY_ENTER){
       newline_on_terminal();
 
-      print_on_terminal("[ root @ charleX ]# ");
-
+      print_on_terminal("# ");
       enter_cuonter++;
 
     }
@@ -162,7 +163,7 @@ void input()
           print_on_terminal("this key not work in this terminal !");
           newline_on_terminal();
           newline_on_terminal();
-          print_on_terminal("[ root @ charleX ]# ");
+          print_on_terminal("# ");
           enter_cuonter++;
           get_input_prompt();
     }
@@ -173,7 +174,7 @@ void input()
           print_on_terminal("this key not work in this terminal !");
           newline_on_terminal();
           newline_on_terminal();
-          print_on_terminal("[ root @ charleX ]# ");
+          print_on_terminal("# ");
           enter_cuonter++;
           get_input_prompt();
     }
@@ -185,7 +186,7 @@ void input()
           print_on_terminal("[ESC (key)] : exit, [BACKSPACE (key)] : delete a charecter ");
           newline_on_terminal();
           newline_on_terminal();
-          print_on_terminal("[ root @ charleX ]# ");
+          print_on_terminal("# ");
           enter_cuonter++;
           get_input_prompt();
     }
@@ -194,9 +195,10 @@ void input()
         init_vga(RED,BLACK);
         print_on_terminal("EXIT ! : ");
         print_on_terminal("if you wnat use CHARLEX-OS => please REBOOT your machine !");
-        break;
-        enter_cuonter++;
         newline_on_terminal();
+
+        break;
+        
     }
 
     else{
@@ -212,8 +214,7 @@ void input()
       enter_cuonter = enter_cuonter *2;
       next_line_index =next_line_index - enter_cuonter;
     }
-    else
-{
+    else{
       next_line_index =next_line_index - enter_cuonter;
     }
 
@@ -226,83 +227,6 @@ void input()
 
 }
 
-// this function load logo
-
-void logo(){
-  // print_on_terminal("      _                _     __  __");
-  // newline_on_terminal();
-
-  // print_on_terminal("  ___| |__   __ _ _ __| | ___\\\\ \\/ /");
-  // newline_on_terminal();
-
-  // print_on_terminal(" / __| '_  \\/ _` | '__| |/ _ \\\\  /");
-  // newline_on_terminal();
-
-  // print_on_terminal("| (__| | | | (_| | |  | |  __//  \\");
-  // newline_on_terminal();
-
-  // print_on_terminal(" \\___|_| |_|\\__,_|_|  |_| \\___/_/\\_\\");
-  // newline_on_terminal();
-
-  // print_on_terminal("        	  ___  ____      ");
-  // newline_on_terminal();
-
-  // print_on_terminal("        	 / _ \\/ ___|    ");
-  // newline_on_terminal();
-
-  // print_on_terminal("        	| | | \\___ \\   ");
-  // newline_on_terminal();
-
-  // print_on_terminal("        	| |_| |___) |    ");
-  // newline_on_terminal();
-
-  // print_on_terminal("        	 \\___/|____/    ");
-
-  print_on_terminal("                                                        ,/{}");
-  newline_on_terminal();
-
-  print_on_terminal("                                                      ,/  {|");
-  newline_on_terminal();
-
-  print_on_terminal("                                                  ,,,/    {|,");
-  newline_on_terminal();
-
-  print_on_terminal("                                            __--~~        {| ~-,");
-  newline_on_terminal();
-
-  print_on_terminal("                                      __--~~              {     `\\");
-  newline_on_terminal();
-
-  print_on_terminal("                                                              ,__ \\");
-  newline_on_terminal();
-
-  print_on_terminal("        888                       888           Y88b    /   `,\\{),\\,");
-  newline_on_terminal();
-
-  print_on_terminal(" e88~~\\ 888-~88e   /~~~8e  888-~\\ 888  e88~~8e   Y88b  /   __-~  `_ ~-_");
-  newline_on_terminal();
-
-  print_on_terminal("d888    888  888       88b 888    888 d888  88b   Y88b/  _-~        ~~-_`~-_");
-  newline_on_terminal();
-
-  print_on_terminal("8888    888  888  e88~-888 888    888 8888__888   /Y88b '             `~-_`~-__ ");
-  newline_on_terminal();
-
-  print_on_terminal("Y888    888  888 C888  888 888    888 Y888    ,  /  Y88b`,                `~-\\_|");
-  newline_on_terminal();
-
-  print_on_terminal(" \"88__/ 888  888  \"88_-888 888    888  \"88___/  /    Y88b`,     _-----___    _,'");
-  newline_on_terminal();
-
-  print_on_terminal("                                                         / /--__  ~~--__  `~,~");
-  newline_on_terminal();
-
-  print_on_terminal("                                                          /     ~~--__  ~-',");
-  newline_on_terminal();
-
-  print_on_terminal("------------------------------------------------------' ");
-  newline_on_terminal();
-}
 
 // kernel entery point !!
 void kernel_up(){
@@ -323,19 +247,29 @@ void kernel_up(){
   newline_on_terminal();
   print_on_terminal("!Welcome to charleX!");
   newline_on_terminal();
-  print_on_terminal("!    version1.0    !");
+  print_on_terminal("!    version 0.1   !");
   newline_on_terminal();
   print_on_terminal("|------------------|");
 
   for (int i = 0; i < 40; i++){
-    sleep(0x02FFFFFF); // sleep for logo to load ;;
+    sleep(0x09FFFFFF); // sleep for logo to load ;;
   }
   //color set to green and black
   init_vga(WHITE, BLACK);
   newline_on_terminal();
   // input() for   infinity loop (terminal loop infinity)
-  print_on_terminal("[ root @ charleX ]# ");
+  print_on_terminal("# ");
 
-  input();
+  while (1){
+    
+    char keycode = 0;
+    keycode = get_input_prompt();
+
+    if (keycode == KEY_ESC){break;}
+    if (keycode == KEY_ENTER){next_line_index =next_line_index-1;}
+  
+    input();
+        
+  }
 
 }
