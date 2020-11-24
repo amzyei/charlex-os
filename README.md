@@ -74,7 +74,7 @@ $ ./run.sh
 
 $ chmod +x ./gccCrossCompiler
 
-$./gccCrossComplier (apt,yum,dnf,...)
+$./gccCrossComplier
 
 # report bug or problems
 
