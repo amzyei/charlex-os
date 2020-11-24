@@ -1,23 +1,20 @@
 #!/bin/bash
-sudo $1 install build-essential -y
-sudo $1  install bison -y
-sudo $1  install flex -y
-sudo $1  install libgmp3-dev -y
-sudo $1  install libmpc-dev -y
-sudo $1  install libmpfr-dev -y
-sudo $1  install texinfo -y
-sudo $1  install libcloog-isl-dev -y
-sudo $1  install libisl-dev -y
-sudo $1  install qemu  -y
-sudo $1  install grub-common -y
-sudo $1  install xorriso -y
-sudo $1  install nasm -y
-sudo $1  install grub-pc-bin -y
-sudo $1  install libfontconfig1 -y
-sudo $1 install mesa-common-dev -y
-sudo $1  install libglu1-mesa-dev -y
-sudo $1 update && sudo $1 upgrade -y
-sudo $1 install qemu-system-x86
-clear
-echo -e "if not RUN ! \nenter your package manager \nlike this 'gccCrossCompiler (yum or apt)'"
-sleep 10;
+sudo apt install build-essential -y
+sudo apt  install bison -y
+sudo apt  install flex -y
+sudo apt  install libgmp3-dev -y
+sudo apt  install libmpc-dev -y
+sudo apt  install libmpfr-dev -y
+sudo apt  install texinfo -y
+sudo apt  install libisl-dev -y
+sudo apt  install qemu  -y
+sudo apt  install grub-common -y
+sudo apt  install xorriso -y
+sudo apt  install nasm -y
+sudo apt  install grub-pc-bin -y
+sudo apt  install libfontconfig1 -y
+sudo apt install mesa-common-dev -y
+sudo apt  install libglu1-mesa-dev -y
+sudo apt update && sudo apt upgrade -y
+sudo apt install qemu-system-x86 -y
+
