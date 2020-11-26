@@ -143,22 +143,33 @@ void input()
       print_on_terminal("# ");
 
       enter_cuonter++;
-      get_input_prompt();
 
     }
     /*
      * if client press backspace for delete a single
      */
     else if(keycode == KEY_BACKSPACE){
-        vga_index = vga_index-1;
-        print_on_terminal(" ");
-        vga_index = vga_index-1;
+        if (vga_index > 0){
+
+          vga_index = vga_index-1;
+          print_on_terminal(" ");
+          vga_index = vga_index-1;
+          
+        }
+
+        else{
+
+          get_input_prompt();
+
+        }        
+        
     }
 
     //if client press arrow up (KEY)
     else if(keycode == KEY_UP){
           newline_on_terminal();
-          print_on_terminal("KEY : UP ARROW | STATUS: PRESSED; ");
+          print_on_terminal("KEY : UP ARROW | STATUS: PRESSED  ; ");
+          newline_on_terminal();
           print_on_terminal("this key not work in this terminal !");
           newline_on_terminal();
           newline_on_terminal();
@@ -169,7 +180,8 @@ void input()
     //if client press arrow down (KEY)
     else if(keycode == KEY_DOWN){
           newline_on_terminal();
-          print_on_terminal("KEY : DOWN ARROW | STATUS: PRESSED; ");
+          print_on_terminal("KEY : DOWN ARROW | STATUS : PRESSED; ");
+          newline_on_terminal();
           print_on_terminal("this key not work in this terminal !");
           newline_on_terminal();
           newline_on_terminal();
@@ -180,7 +192,7 @@ void input()
     //if client press TAB (KEY)
     else if(keycode == KEY_TAB){
           newline_on_terminal();
-          print_on_terminal("KEY : TAB | STATUS : PRESSED; ");
+          print_on_terminal("KEY : TAB | STATUS : PRESSED      ; ");
           newline_on_terminal();
           print_on_terminal("[ESC (key)] : exit, [BACKSPACE (key)] : delete a charecter ");
           newline_on_terminal();
@@ -192,8 +204,12 @@ void input()
     //if client press ESC (KEY)
     else if(keycode == KEY_ESC){
         init_vga(RED,BLACK);
+        newline_on_terminal();
         print_on_terminal("EXIT ! : ");
-        print_on_terminal("if you wnat use CHARLEX-OS => please REBOOT your machine !");
+        newline_on_terminal();
+        print_on_terminal("if you want use CHARLEX-OS => please REBOOT your machine !");
+        newline_on_terminal();
+        newline_on_terminal();
         break;
         enter_cuonter++;
         newline_on_terminal();
@@ -210,22 +226,20 @@ void input()
      */
     if(enter_cuonter<5){
       enter_cuonter = enter_cuonter *2;
-      next_line_index =next_line_index - enter_cuonter;
+      next_line_index = next_line_index - enter_cuonter;
     }
-    else
-{
-      next_line_index =next_line_index - enter_cuonter;
+    else{
+      next_line_index = next_line_index - enter_cuonter;
     }
 
 
     for (int i = 0; i < 1; i++){
-      sleep(0x0CFFFFFF);/* keyboard type speed for real machine (((32bit))) */
+      sleep(0x4CFFFFFF);/* keyboard type speed for (((real machine))) */
     }
 
   }while(ch > 0);
 
 }
-
 
 
 // kernel entery point !!
@@ -247,7 +261,7 @@ void kernel_up(){
   newline_on_terminal();
   print_on_terminal("!Welcome to charleX!");
   newline_on_terminal();
-  print_on_terminal("!   version 0.1    !");
+  print_on_terminal("!    version 0.1   !");
   newline_on_terminal();
   print_on_terminal("|------------------|");
 
@@ -271,4 +285,5 @@ void kernel_up(){
     input();
         
   }
+
 }
