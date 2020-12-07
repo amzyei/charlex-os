@@ -154,15 +154,15 @@ void input()
           vga_index = vga_index-1;
           print_on_terminal(" ");
           vga_index = vga_index-1;
-          
+
         }
 
         else{
 
           get_input_prompt();
 
-        }        
-        
+        }
+
     }
 
     //if client press arrow up (KEY)
@@ -274,15 +274,14 @@ void kernel_up(){
   print_on_terminal("# ");
 
   while (1){
-    
+
     char keycode = 0;
     keycode = get_input_prompt();
-    char *last_kernel_command = keycode; 
     if (keycode == KEY_ESC){break;}
     if (keycode == KEY_ENTER){next_line_index =next_line_index-1;}
-  
+
     input();
-    
+
   }
 
 }
