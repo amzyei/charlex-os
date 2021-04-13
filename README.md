@@ -1,6 +1,3 @@
-# MD5SUM :
-
-		    7771af2382cc8b873f60ff22c8099730
 
 
 # charleX OS logo :
