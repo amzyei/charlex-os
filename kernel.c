@@ -1,5 +1,5 @@
 #include "includes/kernel.h"
-#include "includes/kernelutils.h"
+#include "includes/shell.h"
 #include "includes/utils.h"
 #include "includes/char.h"
 #include "includes/reqs.h"
@@ -12,14 +12,13 @@ void kernel_up(){
 
   // color of terminal(you can change it if you want :D )
   init_vga(WHITE, BLACK);
-  newline_on_terminal();
   logo();
 
 
 
 
   for (int i = 0; i < 40; i++){
-    sleep(0x02FAFFFFF); // sleep for logo to load ;;
+    sleep(0x2FAFFFFA); // sleep for logo to load ;;
   }
   //color set to green and black
   init_vga(WHITE, BLACK);
@@ -32,10 +31,10 @@ void kernel_up(){
     char keycode = 0;
     keycode = get_input_prompt();
 
+    input();
+
     if (keycode == KEY_ESC){break;}
     if (keycode == KEY_ENTER){next_line_index =next_line_index-1;}
-  
-    input();
         
   }
 
