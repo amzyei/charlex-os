@@ -1,8 +1,8 @@
 #include "includes/kernel.h"
-#include "includes/shell.h"
 #include "includes/utils.h"
 #include "includes/char.h"
 #include "includes/reqs.h"
+#include "usr/shell.h"
 
 
 
