@@ -37,8 +37,6 @@ You can support us with contribute and making better code to this project or giv
 
 ![screenshots](screenshots/charleXPrompt.png)
 
-### Logo changed (2022)
-![screenshots](screenshots/charleXLoadingAndLogo(new).png)
 
 # compile and run :
 
@@ -86,9 +84,9 @@ $ chmod +x run.sh
 $ ./run.sh
 
 
-# GCC Cross Compiler :
+# OS and GCC dependencies(Debian/Ubuntu):
 
-$ chmod +x ./gccCrossCompiler
+$ chmod +x ./Depends.deb.sh
 
-$./gccCrossComplier
+$./Depends.deb.sh
 
