@@ -4,27 +4,32 @@
 void input(){
   char ch = 0;
   char keycode = 0;
+  int enter_cuonter = 1;
+
   do{
-    int enter_cuonter=1;
     keycode = get_input_prompt();
-    // if client press enter (KEY)
+    // if user press enter (KEY)
     if(keycode == KEY_ENTER){
       newline_on_terminal();
 
       print_on_terminal("# ");
 
-      enter_cuonter++;
+      enter_cuonter--;
+      ++enter_cuonter;
 
     }
     /*
-     * if client press backspace for delete a single
+     * if user press backspace for delete a single
      */
-    else if(keycode == KEY_BACKSPACE){
-        if (vga_index > 0){
+    else if(keycode == KEY_BACKSPACE && vga_index>82){
+        if (vga_index >= 2){
 
           vga_index = vga_index-1;
           print_on_terminal(" ");
           vga_index = vga_index-1;
+          
+          
+
           
         }
 
@@ -36,30 +41,25 @@ void input(){
         
     }
 
-    //if client press arrow up (KEY)
+    //if user press arrow up (KEY
     else if(keycode == KEY_UP){
-          newline_on_terminal();
-          print_on_terminal("KEY : UP ARROW | STATUS: PRESSED  ; ");
-          newline_on_terminal();
-          newline_on_terminal();
+          print_on_terminal("KEY : UP | STATUS: PRESSED  ; ");
           print_on_terminal("# ");
           enter_cuonter++;
           get_input_prompt();
     }
-    //if client press arrow down (KEY)
+    //if user press arrow down (KEY)
     else if(keycode == KEY_DOWN){
-          newline_on_terminal();
-          print_on_terminal("KEY : DOWN ARROW | STATUS : PRESSED; ");
-          newline_on_terminal();
-          newline_on_terminal();
+          print_on_terminal("KEY : DOWN | STATUS : PRESSED; ");
           print_on_terminal("# ");
           enter_cuonter++;
           get_input_prompt();
     }
-    //if client press TAB (KEY)
+    //if user press TAB (KEY)
     else if(keycode == KEY_TAB){
           newline_on_terminal();
-          print_on_terminal("KEY : TAB | STATUS : PRESSED      ; ");
+          print_on_terminal("KEY : TAB | STATUS : PRESSED; ");
+          newline_on_terminal();
           newline_on_terminal();
           print_on_terminal("[ESC (key)] : exit, [BACKSPACE (key)] : delete a charecter ");
           newline_on_terminal();
@@ -68,18 +68,21 @@ void input(){
           enter_cuonter++;
           get_input_prompt();
     }
-    //if client press ESC (KEY)
-    else if(keycode == KEY_ESC){
+    //if user press ESC (KEY)
+    else if(keycode == KEY_ESC && keycode != KEY_0){
         init_vga(RED,BLACK);
         newline_on_terminal();
         print_on_terminal("EXIT ! : ");
         newline_on_terminal();
-        print_on_terminal("HALT MODE : please REBOOT your machine !");
+        print_on_terminal("HALT MODE : Halt the PC and disable keyboard?!");
         newline_on_terminal();
+        print_on_terminal("PLEASE CONFIRM WITH <ESC> AGAIN (HALT MODE)?"); 
         newline_on_terminal();
-        break;
-        enter_cuonter++;
-        newline_on_terminal();
+        if(keycode==KEY_ESC){
+          init_vga(WHITE, BLUE);
+          print_on_terminal("HALTED");
+          break;
+        }
     }
 
     else{
@@ -101,9 +104,9 @@ void input(){
 
 
     for (int i = 0; i < 1; i++){
-      sleep(0x4CFFFFFA);/* keyboard type speed for (((real machine))) */
+      sleep(0x4CFFFFF9);/* keyboard type speed for (((real machine))) */
     }
 
-  }while(ch > 0);
+  }while(ch >0);
 
 }
