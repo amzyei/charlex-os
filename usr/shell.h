@@ -43,7 +43,11 @@ void input(){
 
     //if user press arrow up (KEY
     else if(keycode == KEY_UP){
+          newline_on_terminal();
+          newline_on_terminal();
           print_on_terminal("KEY : UP | STATUS: PRESSED  ; ");
+          newline_on_terminal();
+          newline_on_terminal();
           print_on_terminal("# ");
           enter_cuonter++;
           get_input_prompt();
@@ -69,18 +73,19 @@ void input(){
           get_input_prompt();
     }
     //if user press ESC (KEY)
-    else if(keycode == KEY_ESC && keycode != KEY_0){
-        init_vga(RED,BLACK);
+    else if(keycode == KEY_ESC){
+        newline_on_terminal();
         newline_on_terminal();
         print_on_terminal("EXIT ! : ");
         newline_on_terminal();
+        newline_on_terminal();
         print_on_terminal("HALT MODE : Halt the PC and disable keyboard?!");
         newline_on_terminal();
-
-        print_on_terminal("PLEASE CONFIRM WITH <ESC> AGAIN (HALT MODE)?"); 
-        
         newline_on_terminal();
-        break;
+        print_on_terminal("PLEASE CONFIRM WITH <ESC> AGAIN (HALT MODE)?"); 
+        newline_on_terminal();
+        newline_on_terminal();
+        break;break;
     }
 
     else{
@@ -102,7 +107,7 @@ void input(){
 
 
     for (int i = 0; i < 1; i++){
-      sleep(0x4CFFFFF9);/* keyboard type speed for (((real machine))) */
+      sleep(0x4CFFFFF8);/* keyboard type speed for (((real machine))) */
     }
 
   }while(ch > 0);
