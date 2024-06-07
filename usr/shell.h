@@ -76,13 +76,11 @@ void input(){
         newline_on_terminal();
         print_on_terminal("HALT MODE : Halt the PC and disable keyboard?!");
         newline_on_terminal();
+
         print_on_terminal("PLEASE CONFIRM WITH <ESC> AGAIN (HALT MODE)?"); 
+        
         newline_on_terminal();
-        if(keycode==KEY_ESC){
-          init_vga(WHITE, BLUE);
-          print_on_terminal("HALTED");
-          break;
-        }
+        break;
     }
 
     else{
@@ -107,6 +105,6 @@ void input(){
       sleep(0x4CFFFFF9);/* keyboard type speed for (((real machine))) */
     }
 
-  }while(ch >0);
+  }while(ch > 0);
 
 }

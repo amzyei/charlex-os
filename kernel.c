@@ -11,7 +11,7 @@ void kernel_up(){
 
 
   // color of terminal(you can change it if you want :D )
-  init_vga(GREEN, BLACK);
+  init_vga(WHITE, BLUE);
   logo();
 
 
@@ -21,7 +21,7 @@ void kernel_up(){
     sleep(0x2FAFFFE); // sleep for logo to load ;;
   }
   //color set to green and black
-  init_vga(WHITE, BLACK);
+  init_vga(WHITE, BLUE);
   newline_on_terminal();
   // input() for   infinity loop (terminal loop infinity)
   print_on_terminal("# ");
@@ -33,7 +33,7 @@ void kernel_up(){
 
     input();
 
-    // if (keycode == KEY_ENTER){next_line_index =next_line_index-2;}
+    if (keycode == KEY_ENTER){next_line_index =next_line_index-2;}
         
   }
 
