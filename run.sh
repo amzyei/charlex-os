@@ -4,10 +4,6 @@
 	#compile kernel.c file
 	gcc -m32 -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
 
-	#compile about.c file
-	gcc -m32 -c about.c -o about.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
-
-
 
 	#comiple others (utils.c, char.c,...)
 
@@ -18,7 +14,6 @@
 	#linking the kernel with kernel.o and boot.o files and others
 
 	ld -m elf_i386 -T linker.ld kernel.o utils.o char.o logo.o boot.o -o charleX.bin -nostdlib
-	ld -m elf_i386 -T linker.ld about.o  utils.o char.o logo.o boot.o -o about.bin -nostdlib
 
 
 	#check charleX.bin file is x86 multiboot file or not
