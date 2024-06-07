@@ -10,8 +10,8 @@ void input(){
     keycode = get_input_prompt();
     // if user press enter (KEY)
     if(keycode == KEY_ENTER){
+      vga_index = 82;
       newline_on_terminal();
-
       print_on_terminal("# ");
 
       enter_cuonter--;
@@ -54,8 +54,14 @@ void input(){
     }
     //if user press arrow down (KEY)
     else if(keycode == KEY_DOWN){
+          newline_on_terminal();
           print_on_terminal("KEY : DOWN | STATUS : PRESSED; ");
+          newline_on_terminal();
+          newline_on_terminal();
+
           print_on_terminal("# ");
+          newline_on_terminal();
+          newline_on_terminal();
           enter_cuonter++;
           get_input_prompt();
     }
