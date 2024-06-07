@@ -29,4 +29,3 @@
 	cp grub.cfg iso/boot/grub/grub.cfg
 	grub-mkrescue -o charleX.iso iso
 	rm *.bin *.o 
-		

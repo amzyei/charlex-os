@@ -72,7 +72,7 @@ $ grub-mkrescue -o charleX.iso iso
 
 $ rm *.bin *.o 
 
-$sudo qemu-system-i386 ./charleX.iso
+
 
 
 
