@@ -1,5 +1,3 @@
-
-
 # charleX OS logo :
 
 
@@ -24,88 +22,26 @@
 
 # charleX OS
 
-charleX is a simple OS ... kernel written with c programming language and reference of this code is 'codeproject.com'.
-I still working to make a better kernel than this one, and many features will be added to this project.
-I wanna create the free and open-source OS like gnu/Linux, *BSD,... and you can support us. if you like this project, give a star to the project and send better code to us.
-
+CharleX is a simple and fast operating system. The kernel is written in C. I am adding new features to make it better. The goal is to make a free, open-source OS like Linux and FreeBSD. You can help by giving code or starring the project.
 
 ![screenshots](screenshots/charleXGrub.png)
 
 ![screenshots](screenshots/charleXLoadingAndLogo.png)
+![screenshots](screenshots/charleX0SCROLL(new).png) [2025]
 
 ![screenshots](screenshots/charleXPrompt.png)
 
+# New Features in usr/shell.h Version 0.2
+
+- The terminal scrolls when text reaches the bottom.
+- Input handling is faster and more correct.
+- Backspace erases characters properly.
+- Special keys (UP, DOWN, TAB, ESC) show messages.
+- Clear screen function is faster.
+- Version updated to 0.2.
 
 # compile and run :
+	$ make mkiso 
 
-$ as --32 boot.s -o boot.o
-
-$ gcc -m32 -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c about.c -o about.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c virtual.c -o virtual.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c qemuTestVM.c -o qemuTestVM.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
- 
-$ gcc -m32 -c utils.c -o utils.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c char.c -o char.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c logo.c -o logo.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ ld -m elf_i386 -T linker.ld kernel.o utils.o char.o logo.o boot.o -o charleX.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld about.o boot.o logo.o  -o   about.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld virtual.o utils.o char.o boot.o logo.o  -o virtual.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld qemuTestVM.o utils.o char.o boot.o logo.o  -o qemuTestVM.bin -nostdlib
- 
-$ grub-file --is-x86-multiboot charleX.bin
- 
-$ mkdir -p iso/boot/grub
- 
-$ mkdir -p iso/about/
- 
-$ mkdir -p iso/virtual/
- 
-$ mkdir -p iso/qemu/
- 
-$ cp charleX.bin iso/boot/charleX.bin
-
-$ cp about.bin iso/about/about.bin
-
-$ cp virtual.bin iso/virtual/virtual.bin
-
-$ cp qemuTestVM.bin iso/qemu/qemuTestVM.bin
-
-$ cp grub.cfg iso/boot/grub/grub.cfg
- 
-$ grub-mkrescue -o charleX.iso iso
- 
-$ rm *.o *.bin
- 
-$ qemu-system-i386 charleX.iso
-
-
-
-# Automatic compile and run
-
-$ chmod +x run.sh
-
-$ ./run.sh
-
-
-# GCC Cross Compiler :
-
-$ chmod +x ./gccCrossCompiler
-
-$./gccCrossComplier
-
-# report bug or problems
-
-send bug or anythings : amzy0zone@gmail.com
-
-thanks for reading this ! :)
+# OS and GCC dependencies(Debian/Ubuntu):
+	$ make deps

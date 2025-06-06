@@ -1,2 +1,4 @@
-iso/**
-charleX.iso
+iso/
+*.bin
+*.o
+

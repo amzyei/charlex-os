@@ -1,4 +1,4 @@
-#include "includes/char.h"
+#include "include/char.h"
 
 char get_ascii_char(uint8 key_code)
 {
