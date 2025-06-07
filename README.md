@@ -1,111 +1,89 @@
+# Charlex-Webshell
 
+Welcome to Charlex-Webshell — a hacker-themed Python webshell designed for stealthy command and control.
 
-# charleX OS logo :
+## What’s inside?
 
+- **Flask webshell** with a secret, random URL (UUID) to stay hidden.
+- **Integrated C2 server** within the Flask app that listens on port 4444 and talks to clients using simple XOR encryption.
+- **Client agent** that connects back, runs commands, and sends results.
+- **Cool green-on-black terminal UI** for that hacker vibe.
 
-                  %%  %%                      %%  %%      
-                 %%      %%                  %%      %%   
-                 %%        %%              %%        %%   
-                 %%          %%%%%%%%%%%%%%          %%   
-                 %%                                  %%   
-                 %%                                  %%   
-               %%        %%%%              %%%%        %% 
-             %%          %%%%%%          %%%%%%          %%
-             %%                                          %%
-             %%                  %%%%%%                  %%
-             %%            %%      %%      %%            %%
-               %%            %%%%%%%%%%%%%%            %%  
-                %%                                    %%  
-                   %%                              %%      
-                     %%%%%%%%              %%%%%%%%     
-                             %%%%%%%%%%%%%%               
+## How to use
 
+1. **Run the client agent on the target machine:**
 
+```bash
+python client_agent.py
+```
 
-# charleX OS
+*(Change the IP in client_agent.py if needed)*
 
-charleX is a simple OS ... kernel written with c programming language and reference of this code is 'codeproject.com'.
-I still working to make a better kernel than this one, and many features will be added to this project.
-I wanna create the free and open-source OS like gnu/Linux, *BSD,... and you can support us. if you like this project, give a star to the project and send better code to us.
+2. **Launch the webshell (which includes the C2 server):**
 
+```bash
+python app.py
+```
 
-![screenshots](screenshots/charleXGrub.png)
+3. **Open your browser and go to:**
 
-![screenshots](screenshots/charleXLoadingAndLogo.png)
+```
+http://127.0.0.1:5000/<secret-uuid>
+```
 
-![screenshots](screenshots/charleXPrompt.png)
+*(The UUID is shown in the console when you start the webshell)*
 
+4. **Select the target client from the list and type commands, hit Enter, and watch the magic happen.**
 
-# compile and run :
+## Important stuff
 
-$ as --32 boot.s -o boot.o
+- This is for **authorized use only**. Don’t be a jerk.
+- Communication uses simple XOR encryption — not bulletproof, but sneaky.
+- The random URL helps keep things under the radar.
+- Keep it safe, keep it smart.
 
-$ gcc -m32 -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c about.c -o about.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c virtual.c -o virtual.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c qemuTestVM.c -o qemuTestVM.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
- 
-$ gcc -m32 -c utils.c -o utils.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c char.c -o char.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c logo.c -o logo.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ ld -m elf_i386 -T linker.ld kernel.o utils.o char.o logo.o boot.o -o charleX.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld about.o boot.o logo.o  -o   about.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld virtual.o utils.o char.o boot.o logo.o  -o virtual.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld qemuTestVM.o utils.o char.o boot.o logo.o  -o qemuTestVM.bin -nostdlib
- 
-$ grub-file --is-x86-multiboot charleX.bin
- 
-$ mkdir -p iso/boot/grub
- 
-$ mkdir -p iso/about/
- 
-$ mkdir -p iso/virtual/
- 
-$ mkdir -p iso/qemu/
- 
-$ cp charleX.bin iso/boot/charleX.bin
+## Files at a glance
 
-$ cp about.bin iso/about/about.bin
+- `app.py` — Flask webshell backend with integrated C2 server
+- `client_agent.py` — The little agent that does your bidding
+- `templates/shell.html` — The hacker-themed terminal UI
+- `.gitignore` — Stuff to ignore in git
 
-$ cp virtual.bin iso/virtual/virtual.bin
+## License
 
-$ cp qemuTestVM.bin iso/qemu/qemuTestVM.bin
+Use it wisely.
 
-$ cp grub.cfg iso/boot/grub/grub.cfg
- 
-$ grub-mkrescue -o charleX.iso iso
- 
-$ rm *.o *.bin
- 
-$ qemu-system-i386 charleX.iso
+## How to compile the client agent
 
+If you want to compile the client agent into a standalone executable, you can do so manually using the following steps:
 
+1. Create and activate a Python virtual environment:
 
-# Automatic compile and run
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
 
-$ chmod +x run.sh
+2. Upgrade pip and install PyInstaller:
 
-$ ./run.sh
+```bash
+pip install --upgrade pip
+pip install pyinstaller
+```
 
+3. Compile the client agent script:
 
-# GCC Cross Compiler :
+```bash
+pyinstaller --onefile client_agent.py
+```
 
-$ chmod +x ./gccCrossCompiler
+4. The compiled executable will be located in the `dist/` directory.
 
-$./gccCrossComplier
+5. Deactivate the virtual environment when done:
 
-# report bug or problems
+```bash
+deactivate
+```
 
-send bug or anythings : amzy0zone@gmail.com
-
-thanks for reading this ! :)
+This replaces the previous `compile_client_agent.sh` script.
+source venv/bin/activate

