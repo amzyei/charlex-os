@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Charlex Web OS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+                Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background-color: #282c34;
+            color: white;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 24 24"><path fill="white" d="M2 2l20 10-20 10z"/></svg>') 0 0, auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            user-select: none;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        #desktop {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        .window {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            user-select: text;
+            display: flex;
+            flex-direction: column;
+        }
+        .window-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px 12px 0 0;
+            cursor: grab;
+            user-select: none;
+        }
+        .window-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: white;
+        }
+        .window-controls {
+            display: flex;
+            gap: 8px;
+        }
+        .window-control-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ff5f57; /* close - red */
+            box-shadow: 0 0 2px rgba(0,0,0,0.3);
+            cursor: pointer;
+            position: relative;
+        }
+        .window-control-button.minimize {
+            background-color: #ffbd2e; /* yellow */
+        }
+        .window-control-button.maximize {
+            background-color: #28c840; /* green */
+        }
+        .window-control-button:hover::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+        #dock {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 64px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 32px;
+            padding: 0 20px;
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            user-select: none;
+            z-index: 1000;
+        }
+        .dock-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        .dock-icon img {
+            width: 28px;
+            height: 28px;
+            pointer-events: none;
+            user-select: none;
+        }
+        .dock-icon:hover {
+            transform: scale(1.5);
+            background-color: rgba(255,255,255,0.4);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="desktop">
+        <div class="window" id="window1" style="top: 50px; left: 50px;">
+            <div class="window-header" onmousedown="startDrag(event, 'window1')">
+                <div class="window-controls">
+                    <div class="window-control-button close" onclick="closeWindow('window1')" title="Close"></div>
+                    <div class="window-control-button minimize" onclick="minimizeWindow('window1')" title="Minimize"></div>
+                    <div class="window-control-button maximize" onclick="maximizeWindow('window1')" title="Maximize"></div>
+                </div>
+                <div class="window-title">Welcome</div>
+                <div style="width: 48px;"></div> <!-- spacer for controls alignment -->
+            </div>
+            <div class="window-content">
+                Welcome to the Charlex Web OS!
+            </div>
+        </div>
+    </div>
+    <div id="dock">
+        <div class="dock-icon" title="Welcome Window" onclick="openWindow('window1')">
+            <img src="/static/images/LOGO.svg" alt="App Icon" />
+        </div>
+        <!-- Add more dock icons here -->
+    </div>
+    <script src="/window_manager.js"></script>
+</body>
+</html>
