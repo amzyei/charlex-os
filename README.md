@@ -1,61 +1,50 @@
-# charleX OS
+# About charleX OS
 
-```
-                  %%  %%                      %%  %%      
-                 %%      %%                  %%      %%   
-                 %%        %%              %%        %%   
-                 %%          %%%%%%%%%%%%%%          %%   
-                 %%                                  %%   
-                 %%                                  %%   
-               %%        %%%%              %%%%        %% 
-             %%          %%%%%%          %%%%%%          %%
-             %%                                          %%
-             %%                  %%%%%%                  %%
-             %%            %%      %%      %%            %%
-               %%            %%%%%%%%%%%%%%            %%  
-                %%                                    %%  
-                   %%                              %%      
-                     %%%%%%%%              %%%%%%%%     
-                             %%%%%%%%%%%%%%               
-```
+charleX OS is a web-based simulation of a real operating system. It is easy to use and looks like a real OS. The main program is written in Python files like `app.py` and `window_manager.py`. The user interface uses HTML templates in the `templates/` directory. Static files like styles, scripts, and images are in the `static/` directory.
 
-## About charleX OS
-
-charleX OS is a simple and free operating system. The main part, called the kernel, is written in the C language. The project is still being worked on. The goal is to make an easy-to-use and fast operating system. It wants to be like Windows but also fast like Linux or FreeBSD.
+This project is simple, easy to grow, and easy for people to help improve.
 
 ## Features
 
-- Simple kernel written in C
 - Free and open source
-- Easy to use and fast
+- Fast and easy to use
 - Designed to add new features easily
 
 ## What you need
 
-To build charleX OS, you need to have these tools:
+To run charleX OS, you need:
 
-- GNU Make
-- GCC (C Compiler)
-- NASM (Assembler)
-- GRUB bootloader tools
+- Python 3
+- Flask web framework
 
-## How to build
+## How to set up
 
-Run these commands in the main project folder:
+1. Create and start a Python virtual environment:
 
 ```bash
-make deps    # Install needed tools
-make mkiso   # Build the ISO file
-make clean   # Remove build files
+python3 -m venv venv
+source venv/bin/activate
+```
+
+2. Install the needed Python packages:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ## How to run
 
-After building, you can run the ISO file in a virtual machine like VirtualBox or QEMU.
+Start the Flask server by running:
 
-## Screenshots
+```bash
+python app.py
+```
 
-You can see pictures of charleX OS in the `screenshots/` folder. They show the boot screen, loading screen, and command prompt.
+Open your web browser and go to `http://localhost:5000` to use charleX OS.
+
+## Documentation
+
+For more information about Flask, see the official Flask docs: [https://flask.palletsprojects.com/](https://flask.palletsprojects.com/)
 
 ## How to help
 
@@ -64,3 +53,19 @@ You can help by sending your changes. Fork the project, make your changes, and s
 ## License
 
 charleX OS uses the license in the [LICENSE](./LICENSE) file.
+
+---
+
+## Project overview
+
+charleX OS is a web-based simulation that looks and works like a real operating system. It gives an easy and nice interface like a normal OS.
+
+- **Source files:** The main code is in `app.py` and `window_manager.py`. They handle the main functions and window management.
+- **Templates:** The `templates/` directory has HTML files for the user interface.
+- **Static files:** The `static/` directory has images, styles, and scripts.
+- **Virtual environment:** The `venv/` directory keeps the Python environment separate.
+- **Version control:** The `.git/` directory tracks changes and helps teamwork.
+
+This structure makes it easy to add new features and for people to help.
+
+Thanks to the Gnu/Linux community for inspiration.
