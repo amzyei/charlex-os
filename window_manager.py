@@ -1,6 +1,9 @@
-from flask import Blueprint, Response
+from flask import Blueprint, Response, request, render_template_string
 
 window_manager_bp = Blueprint('window_manager', __name__)
+
+# In-memory note storage
+note_content = ""
 
 js_code = """
 let dragData = {
@@ -77,3 +80,13 @@ function openWindow(id) {
 @window_manager_bp.route('/window_manager.js')
 def serve_js():
     return Response(js_code, mimetype='application/javascript')
+
+@window_manager_bp.route('/note', methods=['GET', 'POST'])
+def note():
+    global note_content
+    if request.method == 'POST':
+        note_content = request.form.get('noteContent', '')
+        return '', 204
+    else:
+        # Stream the note content as plain text
+        return Response(note_content, mimetype='text/plain')

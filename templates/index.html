@@ -149,10 +149,28 @@
                 Welcome to the Charlex Web OS!
             </div>
         </div>
+        <div class="window" id="noteWindow" style="top: 100px; left: 100px; display: none; flex-direction: column;">
+            <div class="window-header" onmousedown="startDrag(event, 'noteWindow')">
+                <div class="window-controls">
+                    <div class="window-control-button close" onclick="closeWindow('noteWindow')" title="Close"></div>
+                    <div class="window-control-button minimize" onclick="minimizeWindow('noteWindow')" title="Minimize"></div>
+                    <div class="window-control-button maximize" onclick="maximizeWindow('noteWindow')" title="Maximize"></div>
+                </div>
+                <div class="window-title">Note</div>
+                <div style="width: 48px;"></div> <!-- spacer for controls alignment -->
+            </div>
+            <form method="POST" action="/note" style="flex: 1; margin: 10px; display: flex; flex-direction: column;">
+                <textarea name="noteContent" style="flex: 1; resize: none; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 8px; padding: 8px; font-size: 14px;" placeholder="Type your note here...">{{ note_content }}</textarea>
+                <button type="submit" style="margin-top: 8px; padding: 6px 12px; border: none; border-radius: 8px; background-color: #28c840; color: white; font-weight: bold; cursor: pointer;">Save</button>
+            </form>
+        </div>
     </div>
     <div id="dock">
         <div class="dock-icon" title="Welcome Window" onclick="openWindow('window1')">
-            <img src="/static/images/LOGO.svg" alt="App Icon" />
+            <img src="/static/images/LOGO.svg" alt="LOGO" />
+        </div>
+        <div class="dock-icon" title="Note Window" onclick="openWindow('noteWindow')">
+            <img src="/static/images/" alt="Note" />
         </div>
         <!-- Add more dock icons here -->
     </div>

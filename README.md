@@ -1,10 +1,8 @@
-# About charleX OS
+# About Charlex WebOS
 
-charleX OS is a web-based simulation of a real operating system. It is easy to use and looks like a real OS. The main program is written in Python files like `app.py` and `window_manager.py`. The user interface uses HTML templates in the `templates/` directory. Static files like styles, scripts, and images are in the `static/` directory.
+Charlex WebOS is a web-based simulation of a real operating system. It is easy to use and looks like a real OS. The main program is written in Python files like `app.py` and `window_manager.py`. The user interface uses HTML templates in the `templates/` directory. Static files like styles, scripts, and images are in the `static/` directory.
 
 This project is simple, easy to grow, and easy for people to help improve.
-
-## Features
 
 - Free and open source
 - Fast and easy to use
@@ -12,7 +10,7 @@ This project is simple, easy to grow, and easy for people to help improve.
 
 ## What you need
 
-To run charleX OS, you need:
+To run Charlex WebOS, you need:
 
 - Python 3
 - Flask web framework
@@ -40,7 +38,7 @@ Start the Flask server by running:
 python app.py
 ```
 
-Open your web browser and go to `http://localhost:5000` to use charleX OS.
+Open your web browser and go to `http://localhost:5000` to use Charlex WebOS.
 
 ## Documentation
 
@@ -52,13 +50,13 @@ You can help by sending your changes. Fork the project, make your changes, and s
 
 ## License
 
-charleX OS uses the license in the [LICENSE](./LICENSE) file.
+Charlex WebOS uses the license in the [LICENSE](./LICENSE) file.
 
 ---
 
 ## Project overview
 
-charleX OS is a web-based simulation that looks and works like a real operating system. It gives an easy and nice interface like a normal OS.
+Charlex WebOS is a web-based simulation that looks and works like a real operating system. It gives an easy and nice interface like a normal OS.
 
 - **Source files:** The main code is in `app.py` and `window_manager.py`. They handle the main functions and window management.
 - **Templates:** The `templates/` directory has HTML files for the user interface.
@@ -69,3 +67,9 @@ charleX OS is a web-based simulation that looks and works like a real operating 
 This structure makes it easy to add new features and for people to help.
 
 Thanks to the Gnu/Linux community for inspiration.
+
+# Screenshots
+
+![Charlex OS Screenshot](screenshots/charlex2.png)
+
+![Charlex WebOS Screenshot](screenshots/charlexWebOS.png)
