@@ -1,8 +1,6 @@
+# charleX OS
 
-
-# charleX OS logo :
-
-
+```
                   %%  %%                      %%  %%      
                  %%      %%                  %%      %%   
                  %%        %%              %%        %%   
@@ -19,93 +17,50 @@
                    %%                              %%      
                      %%%%%%%%              %%%%%%%%     
                              %%%%%%%%%%%%%%               
+```
 
+## About charleX OS
 
+charleX OS is a simple and free operating system. The main part, called the kernel, is written in the C language. The project is still being worked on. The goal is to make an easy-to-use and fast operating system. It wants to be like Windows but also fast like Linux or FreeBSD.
 
-# charleX OS
+## Features
 
-charleX is a simple OS ... kernel written with c programming language and reference of this code is 'codeproject.com'.
-I still working to make a better kernel than this one, and many features will be added to this project.
-I wanna create the free and open-source OS like gnu/Linux, *BSD,... and you can support us. if you like this project, give a star to the project and send better code to us.
+- Simple kernel written in C
+- Free and open source
+- Easy to use and fast
+- Designed to add new features easily
 
+## What you need
 
-![screenshots](screenshots/charleXGrub.png)
+To build charleX OS, you need to have these tools:
 
-![screenshots](screenshots/charleXLoadingAndLogo.png)
+- GNU Make
+- GCC (C Compiler)
+- NASM (Assembler)
+- GRUB bootloader tools
 
-![screenshots](screenshots/charleXPrompt.png)
+## How to build
 
+Run these commands in the main project folder:
 
-# compile and run :
+```bash
+make deps    # Install needed tools
+make mkiso   # Build the ISO file
+make clean   # Remove build files
+```
 
-$ as --32 boot.s -o boot.o
+## How to run
 
-$ gcc -m32 -c kernel.c -o kernel.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c about.c -o about.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c virtual.c -o virtual.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c qemuTestVM.c -o qemuTestVM.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
- 
-$ gcc -m32 -c utils.c -o utils.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c char.c -o char.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ gcc -m32 -c logo.c -o logo.o -std=gnu99 -ffreestanding -O1 -Wall -Wextra
- 
-$ ld -m elf_i386 -T linker.ld kernel.o utils.o char.o logo.o boot.o -o charleX.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld about.o boot.o logo.o  -o   about.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld virtual.o utils.o char.o boot.o logo.o  -o virtual.bin -nostdlib
- 
-$ ld -m elf_i386 -T linker.ld qemuTestVM.o utils.o char.o boot.o logo.o  -o qemuTestVM.bin -nostdlib
- 
-$ grub-file --is-x86-multiboot charleX.bin
- 
-$ mkdir -p iso/boot/grub
- 
-$ mkdir -p iso/about/
- 
-$ mkdir -p iso/virtual/
- 
-$ mkdir -p iso/qemu/
- 
-$ cp charleX.bin iso/boot/charleX.bin
+After building, you can run the ISO file in a virtual machine like VirtualBox or QEMU.
 
-$ cp about.bin iso/about/about.bin
+## Screenshots
 
-$ cp virtual.bin iso/virtual/virtual.bin
+You can see pictures of charleX OS in the `screenshots/` folder. They show the boot screen, loading screen, and command prompt.
 
-$ cp qemuTestVM.bin iso/qemu/qemuTestVM.bin
+## How to help
 
-$ cp grub.cfg iso/boot/grub/grub.cfg
- 
-$ grub-mkrescue -o charleX.iso iso
- 
-$ rm *.o *.bin
- 
-$ qemu-system-i386 charleX.iso
+You can help by sending your changes. Fork the project, make your changes, and send a pull request. Please follow the current style and add comments.
 
+## License
 
-
-# Automatic compile and run
-
-$ chmod +x run.sh
-
-$ ./run.sh
-
-
-# GCC Cross Compiler :
-
-$ chmod +x ./gccCrossCompiler
-
-$./gccCrossComplier
-
-# report bug or problems
-
-send bug or anythings : amzy0zone@gmail.com
-
-thanks for reading this ! :)
+charleX OS uses the license in the [LICENSE](./LICENSE) file.

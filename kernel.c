@@ -1,7 +1,7 @@
-#include "includes/kernel.h"
-#include "includes/utils.h"
-#include "includes/char.h"
-#include "includes/reqs.h"
+#include "include/kernel.h"
+#include "include/utils.h"
+#include "include/char.h"
+#include "include/reqs.h"
 uint32 vga_index;
 static uint32 next_line_index = 1;
 uint8 g_fore_color = WHITE, g_back_color = BLACK;
