@@ -72,4 +72,4 @@ Thanks to the Gnu/Linux community for inspiration.
 
 ![Charlex OS Screenshot](screenshots/charlex2.png)
 
-![Charlex WebOS Screenshot](screenshots/charlexWebOS.png)
+![Charlex WebOS Screenshot](screenshots/charlex.png)
